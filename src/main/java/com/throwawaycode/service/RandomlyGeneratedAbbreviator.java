@@ -21,8 +21,6 @@ public class RandomlyGeneratedAbbreviator implements AbbreviatorService {
 
     private static final int MAX_GENERATION_ATTEMPTS = 20;
 
-
-
     @Resource
     private RedirectConfig redirectConfig;
     @Resource

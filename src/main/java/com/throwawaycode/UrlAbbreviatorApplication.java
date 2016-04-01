@@ -51,7 +51,7 @@ public class UrlAbbreviatorApplication {
     @Bean
     public Docket docket() {
         return new Docket(DocumentationType.SWAGGER_2).pathMapping("/").genericModelSubstitutes(ResponseEntity.class)
-                                                      .enableUrlTemplating(true).select().paths(paths()).build();
+                                                      .select().paths(paths()).build();
     }
 
     private Predicate<String> paths() {
