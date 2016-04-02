@@ -26,7 +26,7 @@ a dependency on whatever db driver), it can be made to use mysql.
 Some clumsiness in the REST endpoints have to do with URL construction.  The redirect URL's domain and port number
 are naturally context-depended, whereas only the path is stored in the database.  It would be a mistake to pollute the 
 model (UrlAbbreviation) with the context-depended elements.  Yet it seems appropriate to provide an endpoint that furnishes the
-fully assembled URL.  I'm generally disinclined to have REST endpoints produce models that are detached from the underlying
+fully assembled URL.  I'm generally disinclined to have REST endpoints emit models that are detached from the underlying
 datamodel (and I'm loathe to have some DTO class for this purpose, but maybe that's the least-bad strategy).
 
 URL Hashing...wut?
