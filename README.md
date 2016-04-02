@@ -2,11 +2,12 @@ to get running: mvn spring-boot:run
 
 Swagger UI available at "http://localhost:8080/swagger-ui.html"
 
-simple generation:
+simple URL redirect generation (using curl):
 
 curl -sG --data-urlencode "url=$target_url" "http://localhost:8080/admin/create"
 
-(replace "$target_url" with url for which abbreviation is generated.
+(replace "$target_url" with url for which abbreviation is generated.  Response will be the generated
+redirect URL, presented in plaintext.
 
 
 Keith's Wall of Text
