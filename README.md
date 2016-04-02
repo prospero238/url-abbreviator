@@ -14,7 +14,7 @@ Keith's Wall of Text
 =========================
 
 Intro
-=============
+-------------
 
 This app demonstrates a couple of spring techniques.  Its primary function is to take a URL and provide a redirection
 URL, as well as perform said redirection.  For example, you provide a url like "http://www.google.com", and it will
@@ -30,7 +30,7 @@ fully assembled URL.  I'm generally disinclined to have REST endpoints produce m
 datamodel (and I'm loathe to have some DTO class for this purpose, but maybe that's the least-bad strategy).
 
 URL Hashing...wut?
-======================
+-------------
 
 I see why some thought would be given to hashing a URL for this problem.  But there are two reasons I think time
 would be better spent on other approaches:
@@ -46,7 +46,7 @@ unique-path generation has all that much bearing on the problem.
 
 
 Data Model/Database
-==============
+-------------
 
 The UrlAbbreviation is the sole domain, persisted object.  I wouldn't even point it out, except I always thought syntricity
 didn't seem to have such a core concept.  The annotations you see are JPA-related (except for the @ApiModel).  All fields
@@ -55,7 +55,7 @@ didn't seem to have such a core concept.  The annotations you see are JPA-relate
 Hibernate is used, but you won't find any direct code references to it.
  
 Spring Repository
-=====================
+-------------
 
 The UrlAbbreviationRepository is what stores and retrieves data.  What's that?  Don't see an implementation of that 
 interface?  Due to the magic of Spring's CrudRepository, it figures out how to retrieve data just by the method name,
@@ -64,7 +64,7 @@ no implementation needed.  For example, I could add a method "findById" and like
 This is pretty neat and something I haven't used yet in production.  
 
 REST
-======================
+-------------
 
 There's a single class providing my rest endpoints, find in the rest package.  You'll not find a single call to 
 serialize/de-serialize JSON.  Your use of GSON makes me wonder if there isn't some mismatch of domain/rest models.  
@@ -72,7 +72,7 @@ Not saying there's never a case for manual JSON control, but these days I'm more
  by the framework, with occassional annotations for various tweaks.
  
 Redirect Servlet
-======================
+-------------
 
 Doing an HTTP Redirect just ain't a duty of any REST endpoint.  Here we drop down to lower-level servlet code.  Note
 at this level its up to us to grab the spring context ourselves (fortunately spring makes this pretty easy).  
@@ -84,6 +84,6 @@ I map this servlet to receive any requests that begin with "/go/".  If I tried t
  acknowledge always generating URLs that include "/go/" is less than desired.
  
 Swagger
-======================
+-------------
 A project named springfox provides swagger UI generation.  Its configuration is the Docket creation in UrlAbbreviatorApplication.
  
