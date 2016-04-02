@@ -6,7 +6,7 @@ public interface AbbreviatorService {
 
     UrlAbbreviation findOrCreate(String url);
 
-    String findFullUrl(String path);
+    String findFullUrlByPath(String path);
 
     String abbreviate(String url);
 

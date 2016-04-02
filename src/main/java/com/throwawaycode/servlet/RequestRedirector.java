@@ -33,7 +33,7 @@ public class RequestRedirector extends HttpServlet {
         LOG.debug("path:{}", path);
 
         try {
-            String fullUrl = abbreviatorService.findFullUrl(path);
+            String fullUrl = abbreviatorService.findFullUrlByPath(path);
             resp.sendRedirect(fullUrl);
         } catch (AbbreviationNotFoundException e) {
             resp.sendError(404);

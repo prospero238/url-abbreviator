@@ -69,7 +69,7 @@ public class RandomlyGeneratedAbbreviator implements AbbreviatorService {
     }
 
     @Override
-    public String findFullUrl(String path) {
+    public String findFullUrlByPath(String path) {
         UrlAbbreviation urlAbbreviation = urlAbbreviationRepository.findByPathAbbreviation(path);
         if (urlAbbreviation == null) {
             throw new AbbreviationNotFoundException("No abbreviation '" + path + "' exists in the system");
