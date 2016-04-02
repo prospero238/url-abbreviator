@@ -29,6 +29,21 @@ model (UrlAbbreviation) with the context-depended elements.  Yet it seems approp
 fully assembled URL.  I'm generally disinclined to have REST endpoints produce models that are detached from the underlying
 datamodel (and I'm loathe to have some DTO class for this purpose, but maybe that's the least-bad strategy).
 
+URL Hashing...wut?
+======================
+
+I see why some thought would be given to hashing a URL for this problem.  But there are two reasons I think time
+would be better spent on other approaches:
+
+* We're going to have to check for uniqueness anyway.  That is going to be the operation that would require optimization eventually.
+
+* Query Strings.  I'm assuming query strings would be potentially included in the target URL.  Parameter ordering have no
+   meaning in URLs ("?color=red&shape=square" is equal to "?shape=square&color=red".  So, to be complete, a true hash would
+   have to account for that.
+
+Of course, I'm all for encouraging developer indulgences for exploratory code, so have at it.  I'm just not convinced
+unique-path generation has all that much bearing on the problem.
+
 
 Data Model/Database
 ==============
@@ -72,7 +87,3 @@ Swagger
 ======================
 A project named springfox provides swagger UI generation.  Its configuration is the Docket creation in UrlAbbreviatorApplication.
  
- 
- 
-
-
